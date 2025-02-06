@@ -1,16 +1,14 @@
-name: "GitHub Workflow - ${{ github.actor }}"
-
+run-name: ${{ github.actor }} is testing out GitHub Actions
 env:
   GITHUB_ACTIONS: Github actions
-  
 on:
   pull_request:
-
-jobs:
+    branches: [ "main" ]
+  workflow_dispatch:
+jobs: 
   github-task-job:
     runs-on: ubuntu-latest
     steps:
       - run: echo "Envirements is ${{ env.GITHUB_ACTIONS }}"
       - run: echo "Name of the branch  ${{ github.ref }} and your repository is ${{ github.repository }}"
       - run: echo "The job was triggered by a ${{ github.event_name }}"
-      
